@@ -120,10 +120,17 @@ void ijktoX(int i, int j, int k, double *X)
       xKS[3] = x3;
     }
     
-    X[0] = xKS[0];
-    X[1] = log(xKS[1]);
-    X[2] = xKS[2] / M_PI;
-    X[3] = xKS[3];
+    //    X[0] = xKS[0];
+    //X[1] = log(xKS[1]);
+    //X[2] = xKS[2] / M_PI;
+    //X[3] = xKS[3];
+    
+      double r, th;
+      bl_coord(X, &r, &th);
+      X[0] = xKS[0];
+      X[1] = r;
+      X[2] = th;
+      X[3] = xKS[3];
   }
 }
 

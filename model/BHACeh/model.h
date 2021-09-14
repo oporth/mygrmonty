@@ -9,14 +9,16 @@
 #define WEIGHT_MIN (1.e28)
 
 #define SYNCHROTRON (1)
-#define BREMSSTRAHLUNG (0)
+#define BREMSSTRAHLUNG (1)
 #define COMPTON (1)
+#define KAPPA (5.0)
+#define DIST_KAPPA (0)
 
 #define KRHO     0
-#define UU       1
-#define U1       2
-#define U2       3
-#define U3       4
+#define UU       4
+#define U1       1
+#define U2       2
+#define U3       3
 #define B1       5
 #define B2       6
 #define B3       7
@@ -28,7 +30,7 @@
 
 #define N_ESAMP 200
 #define N_EBINS 200
-#define N_THBINS 12
+#define N_THBINS 18
 
 #include "hdf5_utils.h"
 #include "h5io.h"

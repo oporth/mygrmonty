@@ -10,7 +10,7 @@
 //        defined by x^a = { x^0, log(x^1), x^2, x^3 } where x^0, x^1, x^2,
 //        x^3 are normal KS coordinates. in addition you must set METRIC_*
 //        in order to specify how Xtoijk and gdet_zone should work.
-int METRIC_eKS = 0;
+int METRIC_eKS = 0, METRIC_BHACMKS;
 int with_derefine_poles, METRIC_MKS3, METRIC_sphMINK, METRIC_esphMINK = 0;
 double poly_norm, poly_xt, poly_alpha, mks_smooth; // mmks
 double mks3R0, mks3H0, mks3MY1, mks3MY2, mks3MP0; // mks3
@@ -158,6 +158,8 @@ void bl_coord(const double *X, double *r, double *th)
     double y = 2*X[2] - 1.;
     double thJ = poly_norm*y*(1. + pow(y/poly_xt,poly_alpha)/(poly_alpha+1.)) + 0.5*M_PI;
     *th = thG + exp(mks_smooth*(startx[1] - X[1]))*(thJ - thG);
+  } else if (METRIC_BHACMKS){
+    *th = X[2]+ (hslope / 2.) * sin(2. * X[2]);	  
   } else {
     *th = M_PI*X[2] + ((1. - hslope)/2.)*sin(2.*M_PI*X[2]);
   }
